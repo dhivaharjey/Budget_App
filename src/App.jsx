@@ -37,8 +37,8 @@ const App = () => {
           path: "budget/:id",
           element: <BudgetPage />,
           loader: budgetLoader,
-          action: dashboardAction,
-          // action: budgetAction,
+          // action: dashboardAction,
+          action: budgetAction,
           errorElement: <Error />,
           children: [
             {

@@ -3,9 +3,9 @@ import {
   createBudget,
   createExpense,
   deleteItem,
-  getAllMactingItems,
+  getAllMatchingItems,
   waiting,
-} from "../helper/helper";
+} from "../helper/helper.js";
 import { toast } from "react-toastify";
 
 export const logoutAction = async (e) => {
@@ -119,6 +119,7 @@ export const budgetAction = async ({ request }) => {
 };
 
 export function deleteBudget({ params }) {
+  console.log("Budget Loader Params:", params);
   try {
     deleteItem({
       key: "budgets",
@@ -132,6 +133,8 @@ export function deleteBudget({ params }) {
     });
 
     associatedExpenses.forEach((expense) => {
+      console.log("match", expense);
+
       deleteItem({
         key: "expenses",
         id: expense.id,
@@ -139,8 +142,8 @@ export function deleteBudget({ params }) {
     });
 
     toast.success("Budget deleted successfully!");
+    return redirect("/");
   } catch (e) {
     throw new Error("There was a problem deleting your budget.");
   }
-  return redirect("/");
 }

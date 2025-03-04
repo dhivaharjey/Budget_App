@@ -2,7 +2,7 @@ import React from "react";
 import {
   formatCurrency,
   formatDate,
-  getAllMactingItems,
+  getAllMatchingItems,
 } from "../helper/helper";
 import { Link, useFetcher, useLoaderData } from "react-router-dom";
 import { TrashIcon } from "@heroicons/react/16/solid";
@@ -10,7 +10,7 @@ import { TrashIcon } from "@heroicons/react/16/solid";
 const ExpenseItem = ({ expense, showBudget }) => {
   const fetcher = useFetcher();
 
-  const budget = getAllMactingItems({
+  const budget = getAllMatchingItems({
     category: "budgets",
     key: "id",
     value: expense?.budgetId,

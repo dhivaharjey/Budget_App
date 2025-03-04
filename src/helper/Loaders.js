@@ -1,4 +1,4 @@
-import { fetchData, getAllMactingItems } from "./helper";
+import { fetchData, getAllMatchingItems } from "./helper";
 
 export const dashboardLoader = () => {
   const userName = fetchData("userName");
@@ -16,12 +16,12 @@ export const expensesLoader = () => {
 };
 
 export const budgetLoader = ({ params }) => {
-  const budget = getAllMactingItems({
+  const budget = getAllMatchingItems({
     category: "budgets",
     key: "id",
     value: params?.id,
   })[0];
-  const expenses = getAllMactingItems({
+  const expenses = getAllMatchingItems({
     category: "expenses",
     key: "budgetId",
     value: params?.id,

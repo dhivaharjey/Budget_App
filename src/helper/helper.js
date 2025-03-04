@@ -76,12 +76,15 @@ export const formatDate = (createdAt) => {
   });
 };
 
-export const getAllMactingItems = ({ category, key, value }) => {
+export const getAllMatchingItems = ({ category, key, value }) => {
+  console.log(`Fetching ${category} where ${key} = ${value}`);
+
   const data = fetchData(category) ?? [];
+  const matchedItems = data.filter((item) => item[key] === value);
 
-  return data.filter((bud) => bud[key] === value);
+  console.log("Matched items:", matchedItems);
+  return matchedItems;
 };
-
 export const deleteItem = ({ key, id }) => {
   const existingData = fetchData(key);
   if (id) {
