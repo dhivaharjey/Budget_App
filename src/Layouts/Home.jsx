@@ -11,7 +11,7 @@ const Home = () => {
       <main>
         <Outlet />
       </main>
-      <img src="/src/assets/wave.svg" alt="footer image" />
+      <img src="/wave.svg" alt="footer image" />
     </div>
   );
 };
