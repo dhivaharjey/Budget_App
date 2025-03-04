@@ -117,20 +117,30 @@ export const budgetAction = async ({ request }) => {
     }
   }
 };
-export const deleteBudget = ({ params }) => {
+
+export function deleteBudget({ params }) {
   try {
-    deleteItem({ key: "budgets", id: params?.id });
-    const relatedExpenses = getAllMactingItems({
+    deleteItem({
+      key: "budgets",
+      id: params.id,
+    });
+
+    const associatedExpenses = getAllMatchingItems({
       category: "expenses",
       key: "budgetId",
-      id: params?.id,
+      value: params.id,
     });
-    relatedExpenses.forEach((expense) =>
-      deleteItem({ key: "expenses", id: expense.id })
-    );
-    toast.success("Budget deleted successfully");
-  } catch (error) {
-    throw new Error("There was a problem deleting your budget");
+
+    associatedExpenses.forEach((expense) => {
+      deleteItem({
+        key: "expenses",
+        id: expense.id,
+      });
+    });
+
+    toast.success("Budget deleted successfully!");
+  } catch (e) {
+    throw new Error("There was a problem deleting your budget.");
   }
   return redirect("/");
-};
+}
