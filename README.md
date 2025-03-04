@@ -10,7 +10,32 @@
 
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Installation
+
+1. **Create a new Vite project**:
+
+   Open your terminal and run the following command to create a new Vite project:
+
+   ```bash
+   npm create vite@latest
+   ```
+
+2. **Navigate to the project directory**:
+   ```
+   cd your-project-name
+   ```
+3. **Install dependencies**:
+
+### Running the Application
+
+1. **Start the development server**:
+
+   ```
+   npm run dev
+   ```
+
+   - This will start the Vite development server. Open your browser and navigate to http://localhost:5173 to see your application running.
+     This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
